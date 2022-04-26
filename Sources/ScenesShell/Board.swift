@@ -1,8 +1,11 @@
 class Board: RenderableEntity {
     var rectangle : Rectangle
 
-    init(rect:Rect) {
-        rectangle = Rectangle(rect:rect, fillMode:.fillAndStroke)
+    init(rect:Rect){
+        let canvasSize = canvasSize.size
+        // x value should be half of the building's width 
+        var BoardRect = Rect(topLeft: Point(x: 25, y: (canvasSize/3)*2))
+          rectangle = Rectangle(BoardRect:rect, fillMode:.fillAndStroke)
         super.init(name: "Board")
     }
 
@@ -11,6 +14,11 @@ class Board: RenderableEntity {
         let fillStyle = FillStyle(color:Color(.white))
         let lineWidth = LineWidth(width:2)
         canvas.render(strokeStyle, fillStyle, lineWidth, rectangle)
+    }
+
+    func onKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
+        if key == "ArrowUp" {
+            BoardRect.size.height += 2 }
     }
 
 }
