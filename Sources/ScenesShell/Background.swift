@@ -19,7 +19,7 @@ class Background : RenderableEntity {
     }
 
     override func setup(canvasSize: Size, canvas:Canvas){
-        rect = Rect(size:canvasSize)
+        let rect = Rect(size:canvasSize)
     }
 
     override func render(canvas:Canvas){
