@@ -1,3 +1,6 @@
+import Igis
+import Scenes
+
 class Board: RenderableEntity {
     var rectangle : Rectangle
 
