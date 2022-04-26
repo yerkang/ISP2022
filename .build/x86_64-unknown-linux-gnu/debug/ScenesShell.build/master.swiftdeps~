@@ -1,0 +1,14 @@
+version: "Swift version 5.6.1 (swift-5.6.1-RELEASE)"
+options: "b6dbc9f1f2090993cd3343fc6201ce6bfe2420969121a28b6bc94b04496468f1"
+build_start_time: [1650895676, 842921972]
+build_end_time: [1650895680, 383049011]
+inputs:
+  "/home/yerin-kang/projects/ISP-2022/Sources/ScenesShell/Background.swift": !private [1650636607, 292827367]
+  "/home/yerin-kang/projects/ISP-2022/Sources/ScenesShell/BackgroundLayer.swift": !private [1650895615, 756170988]
+  "/home/yerin-kang/projects/ISP-2022/Sources/ScenesShell/Board.swift": !private [1650894628, 581021785]
+  "/home/yerin-kang/projects/ISP-2022/Sources/ScenesShell/ForegroundLayer.swift": !private [1650895615, 760170936]
+  "/home/yerin-kang/projects/ISP-2022/Sources/ScenesShell/InteractionLayer.swift": !private [1650895615, 764170646]
+  "/home/yerin-kang/projects/ISP-2022/Sources/ScenesShell/MainScene.swift": !private [1650895615, 768170356]
+  "/home/yerin-kang/projects/ISP-2022/Sources/ScenesShell/Score.swift": !private [1650894887, 342316627]
+  "/home/yerin-kang/projects/ISP-2022/Sources/ScenesShell/ShellDirector.swift": !private [1650895615, 772170305]
+  "/home/yerin-kang/projects/ISP-2022/Sources/ScenesShell/main.swift": !private [1650895615, 776170253]
