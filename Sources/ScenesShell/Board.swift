@@ -1,5 +1,6 @@
 import Igis
 import Scenes
+import Foundation
 
 class Board: RenderableEntity {
     var rectangle : Rectangle
@@ -9,10 +10,16 @@ class Board: RenderableEntity {
         super.init(name: "Board")
     }
     
-    func onKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
+    func onUpKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
         if key == "ArrowUp" {
+            
             height += 2 }
     }
+
+    func onEnterKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
+        if key == "j" {
+            // insert function for board to fall
+        }}
 
     override func render(canvas:Canvas) {
         
