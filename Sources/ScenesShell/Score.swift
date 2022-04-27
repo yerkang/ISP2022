@@ -4,12 +4,12 @@ import Scenes
 class Score: RenderableEntity {
     var rectangle: Rectangle
     var scoreBoard: Rectangle
-    init() {
+  //  init() {
     //    rectangle = Rectangle(rect:rect, fillMode:.fillAndStroke)
 //        let rectangle = Rect(topLeft:Point(x:100, y:50), size:Size(width:200, height:300))
   //      scoreBoard = Rectangle(rect:rectangle, fillMode:.fillAndStroke)       
-        super.init()
-    }
+     //   super.init()
+   // }
     
     override func render(canvas:Canvas) {
         let rect = Rect(topLeft:Point(x:100, y:50), size:Size(width:200, height:300))
