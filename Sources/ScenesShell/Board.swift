@@ -3,7 +3,7 @@ import Scenes
 import Foundation
 
 class Board: RenderableEntity {
-    var rectangle : Rectangle
+    
     var height = 0
     
     init(rect:Rect){       
