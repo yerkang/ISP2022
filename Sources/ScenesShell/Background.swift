@@ -87,7 +87,6 @@ class Background : RenderableEntity, MouseMoveHandler {
           let skyRect = Rectangle(rect:sky, fillMode:.fill)
           let skyClr = FillStyle(color:Color(red:128, green:170, blue:255))
 
-<<<<<<< HEAD
           let groundRect = Rect(topLeft:Point(x:0, y:0 + (2*(canvasSize.height/3))), size:Size(width: canvasSize.width, height: canvasSize.height/3))
           let ground = Rectangle(rect: groundRect, fillMode: .fill)
           let groundClr = FillStyle(color:Color(red:119, green:179, blue:0))
@@ -96,7 +95,7 @@ class Background : RenderableEntity, MouseMoveHandler {
           let towerStr = StrokeStyle(color:Color(.black)); let towerW = LineWidth(width:1);  canvas.render(towerStr, towerW)
           let towerRect = Rect(topLeft:Point(x:50, y: 2*(canvasSize.height/3)-300), size: Size(width: 100, height:300))
           renderTower(canvas:canvas, rect: towerRect, towerCt: towerNo, color: Color(.gray), adds: [25, 30, 13, 22, 42])
-=======
+
     override func setup(canvasSize: Size, canvas:Canvas){
         let rect = Rect(size:canvasSize)
 
@@ -104,7 +103,7 @@ class Background : RenderableEntity, MouseMoveHandler {
         let rectangle = Rectangle(rect: rect, fillMode: .fillAndStroke)
         canvas.render(fillColor, rectangle)
     }
->>>>>>> eaaf364e1782388aba9671ee30fa824f0485c294
+
 
           renderCloud(canvas:canvas, x:cloudM, y:canvasSize.height/3)
           cloudM += 10
