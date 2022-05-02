@@ -96,13 +96,11 @@ class Background : RenderableEntity, MouseMoveHandler {
           let towerRect = Rect(topLeft:Point(x:50, y: 2*(canvasSize.height/3)-300), size: Size(width: 100, height:300))
           renderTower(canvas:canvas, rect: towerRect, towerCt: towerNo, color: Color(.gray), adds: [25, 30, 13, 22, 42])
 
-    override func setup(canvasSize: Size, canvas:Canvas){
-        let rect = Rect(size:canvasSize)
 
-        let fillColor = FillStyle(color:Color( .white))
-        let rectangle = Rectangle(rect: rect, fillMode: .fillAndStroke)
-        canvas.render(fillColor, rectangle)
-    }
+   
+       
+
+      
 
 
           renderCloud(canvas:canvas, x:cloudM, y:canvasSize.height/3)
@@ -116,3 +114,5 @@ class Background : RenderableEntity, MouseMoveHandler {
           dispatcher.unregisterMouseMoveHandler(handler:self)
       }
 }
+
+      
