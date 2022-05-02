@@ -2,26 +2,23 @@ import Igis
 import Scenes
 import Foundation
 
+<<<<<<< HEAD
 class Board: RenderableEntity, KeyDownHandler{
+=======
+class Board: RenderableEntity {
+    var board: Rectangle 
+    var height = 50
+>>>>>>> d9981a4738eff58943e34f3f707b385cbcb487f9
     
-    var height = 0
-    
-    init(rect:Rect){       
+    init(rect: Rect){
+        board = Rectangle(rect:rect, fillMode:.fillAndStroke)  
         super.init(name: "Board")
     }
     
-    func onUpKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
-        if key == "ArrowUp" {
-            
-            height += 2 }
-    }
 
-    func onEnterKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
-        if key == "j" {
-            // insert function for board to fall
-        }}
-
+    
     override func render(canvas:Canvas) {
+<<<<<<< HEAD
         
             let canvasSize = canvas.canvasSize!   
             let boardColor = StrokeStyle(color:Color(.black))
@@ -32,7 +29,16 @@ class Board: RenderableEntity, KeyDownHandler{
             // y value should be canvasSize - buildingHeight + height increments
             let boardWidth = LineWidth(width: 5)
             canvas.render(boardColor, boardWidth, board)
+=======
+        let strokeStyle = StrokeStyle(color:Color(.black))
+        let fillStyle = FillStyle(color:Color(.white))
+        let lineWidth = LineWidth(width:2)
+        canvas.render(strokeStyle, fillStyle, lineWidth, board)
+>>>>>>> d9981a4738eff58943e34f3f707b385cbcb487f9
     }
 
+    func move(to point:Point) {
+        board.rect.topLeft = point
+    }
 
 }

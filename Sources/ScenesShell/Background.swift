@@ -96,6 +96,13 @@ class Background : RenderableEntity, MouseMoveHandler {
           let towerRect = Rect(topLeft:Point(x:50, y: 2*(canvasSize.height/3)-300), size: Size(width: 100, height:300))
           renderTower(canvas:canvas, rect: towerRect, towerCt: towerNo, color: Color(.gray), adds: [25, 30, 13, 22, 42])
 
+
+   
+       
+
+      
+
+
           renderCloud(canvas:canvas, x:cloudM, y:canvasSize.height/3)
           cloudM += 10
 
