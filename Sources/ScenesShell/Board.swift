@@ -2,7 +2,7 @@ import Igis
 import Scenes
 import Foundation
 
-class Board: RenderableEntity {
+class Board: RenderableEntity, KeyDownHandler{
     
     var height = 0
     
@@ -24,11 +24,11 @@ class Board: RenderableEntity {
     override func render(canvas:Canvas) {
         
             let canvasSize = canvas.canvasSize!   
-            let boardColor = FillStyle(color:Color(.black))
-            let board = Path()
+            let boardColor = StrokeStyle(color:Color(.black))
+            let board = Path(fillMode: .stroke)
             // x value should be half of the building's width    
-            board.moveTo(Point(x:10, y:(canvasSize.height/3)*2))
-            board.lineTo(Point(x:10, y:((canvasSize.height/3)*2) + height))
+            board.moveTo(Point(x:10, y:(canvasSize.height/4)*3))
+            board.lineTo(Point(x:10, y:((canvasSize.height/4)*3) + height))
             // y value should be canvasSize - buildingHeight + height increments
             let boardWidth = LineWidth(width: 5)
             canvas.render(boardColor, boardWidth, board)
