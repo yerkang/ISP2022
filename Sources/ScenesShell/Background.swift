@@ -60,9 +60,9 @@ class Background : RenderableEntity, MouseMoveHandler {
     }
 
     func renderCloud (canvas:Canvas, x: Int, y:Int) {
-        var lump1 = Ellipse(center:Point(x:x, y:y), radiusX:50, radiusY:50, fillMode: .fill)
-        var lump2 = Ellipse(center:Point(x:x+50, y:(y)+25), radiusX:50, radiusY:50, fillMode: .fill)
-        var lump3 = Ellipse(center:Point(x:x-50, y:(y)+25), radiusX:50, radiusY:50, fillMode: .fill)
+        let  lump1 = Ellipse(center:Point(x:x, y:y), radiusX:50, radiusY:50, fillMode: .fill)
+        let lump2 = Ellipse(center:Point(x:x+50, y:(y)+25), radiusX:50, radiusY:50, fillMode: .fill)
+        let lump3 = Ellipse(center:Point(x:x-50, y:(y)+25), radiusX:50, radiusY:50, fillMode: .fill)
         let cloudCl = FillStyle(color:Color(.white)) ; canvas.render(cloudCl, lump1, lump2, lump3)
     }
 
@@ -95,13 +95,6 @@ class Background : RenderableEntity, MouseMoveHandler {
           let towerStr = StrokeStyle(color:Color(.black)); let towerW = LineWidth(width:1);  canvas.render(towerStr, towerW)
           let towerRect = Rect(topLeft:Point(x:50, y: 2*(canvasSize.height/3)-300), size: Size(width: 100, height:300))
           renderTower(canvas:canvas, rect: towerRect, towerCt: towerNo, color: Color(.gray), adds: [25, 30, 13, 22, 42])
-
-
-   
-       
-
-      
-
 
           renderCloud(canvas:canvas, x:cloudM, y:canvasSize.height/3)
           cloudM += 10
