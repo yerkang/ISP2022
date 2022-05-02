@@ -33,24 +33,11 @@ class Background : RenderableEntity, MouseMoveHandler {
     }
 
 
-    func renderTower (canvas:Canvas, rect: Rect, towerCt: Int, color: Color, adds: [Int]){
+    func renderTower (canvas:Canvas, rect: Rect, towerCt: Int, color: Color){
         var tower = rect
         var winds = Rect(topLeft:Point(x:rect.topLeft.x+10, y:rect.topLeft.y+10), size:Size(width: 30, height: 10))
-        var ind = 0 
         for _ in 0 ..< towerCt {
-            let add = adds[ind]
-            if add % 3 == 0 {
-                tower.size.height -= add
-                tower.topLeft.y += add
-                renderRectangle(canvas:canvas, rect:tower, color:color)
-                winds.topLeft.y += add
-            } else {
-                tower.size.height += add
-                tower.topLeft.y -= add
-                renderRectangle(canvas:canvas, rect:tower, color:color)
-                winds.topLeft.y -= add               
-            }
-            ind = (ind + 1) % towerCt
+            renderRectangle(canvas:canvas, rect:tower, color:color)
             let space = tower.size.width + 30
             renderWindows(canvas:canvas, rect:winds, columns: tower.size.width / 40, rows: tower.size.height / 25)
             tower.topLeft.x += space
@@ -79,22 +66,23 @@ class Background : RenderableEntity, MouseMoveHandler {
           rect = Rect(size:canvasSize)
       }
 
-      let towerNo = Int.random(in:2...5)
       override func render(canvas:Canvas){
-
           let canvasSize = canvas.canvasSize!
+
           let sky = Rect(topLeft:Point(x:0, y:0), size:canvasSize)
           let skyRect = Rectangle(rect:sky, fillMode:.fill)
           let skyClr = FillStyle(color:Color(red:128, green:170, blue:255))
 
-          let groundRect = Rect(topLeft:Point(x:0, y:0 + (2*(canvasSize.height/3))), size:Size(width: canvasSize.width, height: canvasSize.height/3))
+          let groundRect = Rect(topLeft:Point(x:0, y:0 + (5*(canvasSize.height/6))), size:Size(width: canvasSize.width, height: canvasSize.height/3))
           let ground = Rectangle(rect: groundRect, fillMode: .fill)
           let groundClr = FillStyle(color:Color(red:119, green:179, blue:0))
           canvas.render(skyClr, skyRect, groundClr, ground)
-              
+
+          let towerNo = canvasSize.width/130
+          
           let towerStr = StrokeStyle(color:Color(.black)); let towerW = LineWidth(width:1);  canvas.render(towerStr, towerW)
-          let towerRect = Rect(topLeft:Point(x:50, y: 2*(canvasSize.height/3)-300), size: Size(width: 100, height:300))
-          renderTower(canvas:canvas, rect: towerRect, towerCt: towerNo, color: Color(.gray), adds: [25, 30, 13, 22, 42])
+          let towerRect = Rect(topLeft:Point(x:50, y: 5*(canvasSize.height/6)-300), size: Size(width: 100, height:300))
+          renderTower(canvas:canvas, rect: towerRect, towerCt: towerNo, color: Color(.gray))
 
           renderCloud(canvas:canvas, x:cloudM, y:canvasSize.height/3)
           cloudM += 10
