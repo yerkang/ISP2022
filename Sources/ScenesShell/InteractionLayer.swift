@@ -38,7 +38,7 @@ var x = 0
           if key == "f" {
               board.fall()
               
-              Board.calculate(canvasSize: Size, canvas: Canvas, widthBetween: adds, widthOf: wides, n: x)
+              board.calculate(canvasSize: Size, canvas: Canvas, widthBetween: adds, widthOf: wides, n: x)
           x += 1}
       }
 
