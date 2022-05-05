@@ -41,7 +41,7 @@ class Background : RenderableEntity, MouseMoveHandler {
             let add = adds[ind]
             let widthAd = widthAds[ind]
             ind = (ind+1)%adds.count
-            tower.size.width += widthAd
+            tower.size.width = widthAd
             renderRectangle(canvas:canvas, rect:tower, color:color)
             let space = tower.size.width + add
             renderWindows(canvas:canvas, rect:winds, columns: tower.size.width / 40, rows: tower.size.height / 25)
@@ -85,11 +85,12 @@ class Background : RenderableEntity, MouseMoveHandler {
           canvas.render(skyClr, skyRect, groundClr, ground)
 
           let wides = [-50, 35, 10, -5, 10]
+          let widthAd = [width/15, width/13, width/12, width/11]
           let towerNo = width/(width/7)
           
           let towerStr = StrokeStyle(color:Color(.black)); let towerW = LineWidth(width:1);  canvas.render(towerStr, towerW)
           let towerRect = Rect(topLeft:Point(x:80, y: 5*(canvasSize.height/6)-300), size: Size(width: 150, height:300))
-          renderTower(canvas:canvas, rect: towerRect, towerCt: towerNo, color: Color(.gray), adds: [width/15, width/13, width/12, width/11], widthAds: wides)
+          renderTower(canvas:canvas, rect: towerRect, towerCt: towerNo, color: Color(.gray), adds: widthAd, widthAds: wides)
 
           renderCloud(canvas:canvas, x:cloudM, y:canvasSize.height/4)
           if cloudM > width+100 {
