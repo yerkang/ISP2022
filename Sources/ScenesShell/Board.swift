@@ -32,6 +32,7 @@ class Board: RenderableEntity {
         board.rect.size.width = x*(-1) }
 
     func calculate(canvas: Canvas, widthBetween: [Int], widthOf: [Int], n: Int) { // only called after f is held down
+        let adds = [width/15, width/13, width/12, width/10, width/11, width/5, width/9, width/15, width/17] // distance between        
         if board.rect.size.width > (widthOf[n]/2) + widthBetween[n] + widthOf[n+1] { // n is index
             board.rect.size.width = 0
         }

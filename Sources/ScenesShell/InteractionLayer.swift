@@ -15,7 +15,7 @@ class InteractionLayer : Layer, KeyDownHandler {
     let board = Board(rect: Rect(size:Size(width:10, height:-10)))
     let background = Background()
     let wides = [50, 35, 10, -5, 10, 20, -10, 30, -10, 15, 20, -15]
-    let adds = [width/15, width/13, width/12, width/10, width/11, width/5, width/9, width/15, width/17] // distance between 
+
  
 
 

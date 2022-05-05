@@ -89,9 +89,8 @@ class Background : RenderableEntity, MouseMoveHandler {
           let groundClr = FillStyle(color:Color(red:119, green:179, blue:0))
           canvas.render(skyClr, skyRect, groundClr, ground)
 
-
           let wides = [-50, 35, 10, -5, 10, 20, -10, 30, -10, 15, 20, -15] // tower width increment
-          let twrWidth =  [width/15, width/13, width/12, width/10, width/11, width/5, width/9, width/15, width/17]
+          let twrWidth = [width/15, width/13, width/12, width/10, width/11, width/5, width/9, width/15, width/17]
 
           let towerNo = width/(width/7)
           
@@ -103,9 +102,9 @@ class Background : RenderableEntity, MouseMoveHandler {
           if cloudM > width+100 {
               cloudM = 0
           }
-          cloudM += 10
+          cloudM += 10          
 
-          }                  
+      }
     
       func onMouseMove(globalLocation: Point, movement: Point){
       }
@@ -113,5 +112,6 @@ class Background : RenderableEntity, MouseMoveHandler {
           dispatcher.unregisterMouseMoveHandler(handler:self)
       }
 }
+
 
       
