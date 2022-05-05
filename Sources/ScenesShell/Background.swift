@@ -44,7 +44,11 @@ class Background : RenderableEntity, MouseMoveHandler {
             let add = adds[ind]
             let widthAd = widthAds[ind]
             ind = (ind+1)%adds.count
+<<<<<<< HEAD
             tower.size.width += widthAd // changing width of tower
+=======
+            tower.size.width = widthAd
+>>>>>>> 0965c88d7b8ab129f28c09e892dd7ad70b9b920f
             renderRectangle(canvas:canvas, rect:tower, color:color)
             let space = tower.size.width + add // changing distance between towers
             renderWindows(canvas:canvas, rect:winds, columns: tower.size.width / 40, rows: tower.size.height / 25)
@@ -91,12 +95,21 @@ class Background : RenderableEntity, MouseMoveHandler {
           let groundClr = FillStyle(color:Color(red:119, green:179, blue:0))
           canvas.render(skyClr, skyRect, groundClr, ground)
 
+<<<<<<< HEAD
           let wides = [-50, 35, 10, -5, 10, 20, -10, 30, -10, 15, 20, -15] // tower width increment
+=======
+          let wides = [-50, 35, 10, -5, 10]
+          let widthAd = [width/15, width/13, width/12, width/11]
+>>>>>>> 0965c88d7b8ab129f28c09e892dd7ad70b9b920f
           let towerNo = width/(width/7)
           
           let towerStr = StrokeStyle(color:Color(.black)); let towerW = LineWidth(width:1);  canvas.render(towerStr, towerW)
           let towerRect = Rect(topLeft:Point(x:80, y: 5*(canvasSize.height/6)-300), size: Size(width: 150, height:300))
+<<<<<<< HEAD
           renderTower(canvas:canvas, rect: towerRect, towerCt: towerNo, color: Color(.gray), adds: [width/15, width/13, width/12, width/10, width/11, width/5, width/9, width/15, width/17], widthAds: wides) // distance between 
+=======
+          renderTower(canvas:canvas, rect: towerRect, towerCt: towerNo, color: Color(.gray), adds: widthAd, widthAds: wides)
+>>>>>>> 0965c88d7b8ab129f28c09e892dd7ad70b9b920f
 
           renderCloud(canvas:canvas, x:cloudM, y:canvasSize.height/4)
           if cloudM > width+100 {
