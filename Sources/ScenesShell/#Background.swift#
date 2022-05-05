@@ -31,7 +31,7 @@ class Background : RenderableEntity, MouseMoveHandler {
                 }
             }
             wind.topLeft.x -= spaceBt * columns
-            wind.topLeft.y += wind.size.height + 10
+BB            wind.topLeft.y += wind.size.height + 10
         }
     }
 
