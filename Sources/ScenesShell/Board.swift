@@ -43,8 +43,10 @@ class Board: RenderableEntity {
         
         let startRange = (widthOf[n]/2) + widthBetween[n]
         let endRange = (widthOf[n]/2) + widthBetween[n] + widthOf[n+1]
+        if endRange >= startRange {
         let numberRange = startRange...endRange
-
+        }
+        
         if numberRange.contains(board.rect.size.width) {
             board.rect.size.width += 40
             // dude walks over
