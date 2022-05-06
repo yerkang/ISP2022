@@ -1,7 +1,6 @@
 import Scenes
 import Igis
-import Foundation
-
+import Foundation 
 
   /*
      This class is responsible for the interaction Layer.
@@ -12,11 +11,18 @@ import Foundation
 class InteractionLayer : Layer, KeyDownHandler {
 
 
+
     let board = Board(rect: Rect(size:Size(width:10, height:-10)))
     let background = Background()
     let wides = [50, 35, 10, -5, 10, 20, -10, 30, -10, 15, 20, -15]
 
  
+
+
+ 
+    let board = Board(rect:Rect(size:Size(width:10, height:100)))
+    let background = Background()
+    var height = 0
 
 
       init() {
@@ -29,6 +35,7 @@ class InteractionLayer : Layer, KeyDownHandler {
 
       }
       
+
       func onKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
 var x = 0         
           if key  == "x" {
@@ -52,6 +59,16 @@ var x = 0
         var v = 0
         board.move(to: Point(x:(adds[h] + wides[v]/2), y:300 + height/6 - 10))
         
+
+    func onKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
+        if code  == "KeyX" {
+            height += 50
+        }}
+
+    override func preSetup(canvasSize: Size, canvas: Canvas) {
+        dispatcher.registerKeyDownHandler(handler: self)
+        board.move(to: Point(x:10, y:((canvasSize.height/3)*2) + height))
+
     }
 
     override func postTeardown() {
@@ -59,3 +76,4 @@ var x = 0
     }
       
   }
+}

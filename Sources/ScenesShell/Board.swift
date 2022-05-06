@@ -23,6 +23,7 @@ class Board: RenderableEntity {
         board.rect.topLeft = point
     }
 
+
     func extend(height: Int) {
         board.rect.size.height -= height }
 
@@ -69,5 +70,7 @@ class Board: RenderableEntity {
 
 
     
+
+
 
 }
