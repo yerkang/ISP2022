@@ -11,6 +11,7 @@ import Foundation
 class InteractionLayer : Layer, KeyDownHandler {
 
 
+<<<<<<< HEAD
 
 
     let board = Board(rect: Rect(size:Size(width:10, height:-10)))
@@ -29,6 +30,14 @@ class InteractionLayer : Layer, KeyDownHandler {
 
 
 
+=======
+    let board = Board(rect: Rect(size:Size(width:10, height:-10)))
+    let background = Background()
+    let wides = [50, 35, 10, 5, 10, 20, 10, 30, 10, 15, 20, 15]
+    let adds = [130, 170, 120, 140, 110, 90, 150, 160, 175, 80, 130, 170]
+
+ 
+>>>>>>> 8f56ec63f1f7fa3a3f15ef9c4653c3d5440e6d71
 
 
       init() {
@@ -44,7 +53,11 @@ class InteractionLayer : Layer, KeyDownHandler {
 
 
       func onKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
+<<<<<<< HEAD
 var x = 0         
+=======
+var x = 0        
+>>>>>>> 8f56ec63f1f7fa3a3f15ef9c4653c3d5440e6d71
           if key  == "x" {
               board.extend(height: 10)
           }
@@ -52,6 +65,7 @@ var x = 0
           if key == "f" {
               board.fall()
               
+<<<<<<< HEAD
               board.calculate(canvasSize: Size, canvas: Canvas, widthBetween: adds, widthOf: wides, n: x)
           x += 1}
       }
@@ -86,6 +100,22 @@ var x = 0
         dispatcher.registerKeyDownHandler(handler: self)
         board.move(to: Point(x:10, y:((canvasSize.height/3)*2) + height))
 
+=======
+              board.calculate( widthBetween: adds, widthOf: wides, n: x)
+              x = (x+1)%11}
+      }
+
+    override func preSetup(canvasSize: Size, canvas: Canvas) {
+        dispatcher.registerKeyDownHandler(handler: self)
+        let canvasSize = canvas.canvasSize!
+        let width = canvasSize.width
+        let height = canvasSize.height
+ 
+        var h = 0
+        var v = 0
+        board.move(to: Point(x:(adds[h] + wides[v]/2), y:300 + height/6 - 10))
+        
+>>>>>>> 8f56ec63f1f7fa3a3f15ef9c4653c3d5440e6d71
     }
 
     override func postTeardown() {
