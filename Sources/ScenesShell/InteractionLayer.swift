@@ -9,6 +9,7 @@ import Foundation
 
 
 class InteractionLayer : Layer, KeyDownHandler {
+<<<<<<< HEAD
 
 
 
@@ -39,6 +40,12 @@ class InteractionLayer : Layer, KeyDownHandler {
  
 
 
+=======
+ 
+    let board = Board(rect:Rect(size:Size(width:10, height:100)))
+    let background = Background()
+    var height = 0
+>>>>>>> parent of f145489... Board is functioning.
 
       init() {
           // Using a meaningful name can be helpful for debugging
@@ -50,6 +57,7 @@ class InteractionLayer : Layer, KeyDownHandler {
 
       }
       
+<<<<<<< HEAD
 
 
       func onKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
@@ -81,6 +89,8 @@ var x = 0
         board.move(to: Point(x:(adds[h] + wides[v]/2), y:300 + height/6 - 10))
     }
 
+=======
+>>>>>>> parent of f145489... Board is functioning.
     func onKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
         if code  == "KeyX" {
             height += 50
@@ -89,6 +99,7 @@ var x = 0
     override func preSetup(canvasSize: Size, canvas: Canvas) {
         dispatcher.registerKeyDownHandler(handler: self)
         board.move(to: Point(x:10, y:((canvasSize.height/3)*2) + height))
+<<<<<<< HEAD
 
     }
     func onKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
@@ -117,6 +128,8 @@ var x = 0
         board.move(to: Point(x:(adds[h] + wides[v]/2), y:300 + height/6 - 10))
         
 
+=======
+>>>>>>> parent of f145489... Board is functioning.
     }
 
     override func postTeardown() {

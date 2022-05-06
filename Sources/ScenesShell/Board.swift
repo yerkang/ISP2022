@@ -23,6 +23,7 @@ class Board: RenderableEntity {
         board.rect.topLeft = point
     }
 
+<<<<<<< HEAD
 
 
     func extend(height: Int) {
@@ -98,4 +99,6 @@ class Board: RenderableEntity {
 
 
 
+=======
+>>>>>>> parent of f145489... Board is functioning.
 }
