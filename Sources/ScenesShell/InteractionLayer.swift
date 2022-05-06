@@ -14,7 +14,8 @@ class InteractionLayer : Layer, KeyDownHandler {
 
     let board = Board(rect: Rect(size:Size(width:10, height:-10)))
     let background = Background()
-    let wides = [50, 35, 10, -5, 10, 20, -10, 30, -10, 15, 20, -15]
+    let wides = [50, 35, 10, 5, 10, 20, 10, 30, 10, 15, 20, 15]
+    let adds = [130, 170, 120, 140, 110, 90, 150, 160, 175, 80, 130, 170]
 
  
 
@@ -30,7 +31,7 @@ class InteractionLayer : Layer, KeyDownHandler {
       }
       
       func onKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
-var x = 0         
+var x = 0        
           if key  == "x" {
               board.extend(height: 10)
           }
@@ -38,8 +39,8 @@ var x = 0
           if key == "f" {
               board.fall()
               
-              board.calculate(canvasSize: Size, canvas: Canvas, widthBetween: adds, widthOf: wides, n: x)
-          x += 1}
+              board.calculate( widthBetween: adds, widthOf: wides, n: x)
+              x = (x+1)%11}
       }
 
     override func preSetup(canvasSize: Size, canvas: Canvas) {
