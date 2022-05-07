@@ -12,7 +12,7 @@ import Foundation
 class InteractionLayer : Layer, KeyDownHandler {
 
 
-    let board = Board(rect: Rect(size:Size(width:10, height:100)))
+    let board = Board(rect: Rect(size:Size(width:10, height:10)))
     let background = Background()
 
 
@@ -39,7 +39,7 @@ class InteractionLayer : Layer, KeyDownHandler {
 
     override func preSetup(canvasSize: Size, canvas: Canvas) {
         dispatcher.registerKeyDownHandler(handler: self)
-        board.move(to: Point(x:10, y:((canvasSize.height/3)*2)))
+        board.move(to: Point(x:10, y:((canvasSize.height/6)*5 - 300 - 10))) // building height is 300, grass is 5/6 of canvas height
         
     }
 

@@ -4,7 +4,7 @@ import Foundation
 
 class Board: RenderableEntity {
     var board: Rectangle 
-    var height = 50
+    var height = 5
     
     init(rect: Rect){
         board = Rectangle(rect:rect, fillMode:.fillAndStroke)  
