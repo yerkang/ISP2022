@@ -94,9 +94,9 @@ class Background : RenderableEntity, MouseMoveHandler {
           let groundClr = FillStyle(color:Color(red:119, green:179, blue:0))
           canvas.render(skyClr, skyRect, groundClr, ground)
 
-          let wides = [50, 90, 170, 290, 50, 170, 140, 240, 170, 250, 50, 170] // tower width increment
-          let inBetween = [130, 170, 120, 140, 110, 90, 150, 160, 175, 80]     
-          let towerNo = width/(width/7)
+          let wides = [80, 50, 90, 170, 290, 50, 170, 100] //building width
+          let inBetween = [130, 170, 120, 140, 110, 90, 80] //area in between the buiildings
+          let towerNo = 7
 
           let towerStr = StrokeStyle(color:Color(.black)); let towerW = LineWidth(width:1);  canvas.render(towerStr, towerW)
           let towerRect = Rect(topLeft:Point(x:80, y: 5*(canvasSize.height/6)-300), size: Size(width: 150, height:300))
@@ -109,8 +109,7 @@ class Background : RenderableEntity, MouseMoveHandler {
 
           cloudM += 10
 
-      }
-
+      }    
       func onMouseMove(globalLocation: Point, movement: Point){
       }
       override func teardown() {
