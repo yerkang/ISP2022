@@ -43,7 +43,7 @@ class InteractionLayer : Layer, KeyDownHandler {
 
     override func preSetup(canvasSize: Size, canvas: Canvas) {
         dispatcher.registerKeyDownHandler(handler: self)
-        board.move(to: Point(x: 80 + (50/2) - 5, y:((canvasSize.height/6)*5 - 300 - 10))) // building height is 300, grass is 5/6 of canvas height
+        board.move(to: Point(x: 80 + (50/2), y:((canvasSize.height/6)*5 - 300 - 10))) // building height is 300, grass is 5/6 of canvas height
         // x value = 80 (initial x location) + (50 (initial building width) / 2)
     }
 

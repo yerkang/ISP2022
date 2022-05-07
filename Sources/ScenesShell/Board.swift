@@ -30,14 +30,23 @@ class Board: RenderableEntity {
         let x =  board.rect.size.height
         board.rect.size.height = board.rect.size.width
         board.rect.size.width = x*(-1) }
+
+  //  func gameOver() {
+  //  }
     
     func calculate(widthBetween: [Int], widthOf: [Int], n: Int) { // only called after f is held down
-        if board.rect.size.width > (widthOf[n]/2) + widthBetween[n+1] + widthOf[n+2] { // n is index
-            board.rect.size.width = 0
+       
+        
+       
+        if board.rect.size.width > (widthOf[n]/2) + widthBetween[n] + widthOf[n+1] { // n is index
+            board.rect.size.height = 100   
+
         }
 
-        if board.rect.size.width < (widthOf[n]/2) + widthBetween[n] {
-            board.rect.size.width = 0
+        if board.rect.size.width < (widthOf[n]/2) + widthBetween[n] + 10  {
+    
+
+            board.rect.size.height = 50
             // dude never makes it - falls off
         }
 
@@ -46,12 +55,13 @@ class Board: RenderableEntity {
           
 
         if board.rect.size.width > startRange && board.rect.size.width < endRange  {
-            board.rect.size.width += 40
+
+            board.rect.size.height = 0
             // dude walks over
         }
 
-    }
     
+    }
     
 
 } // board falling graphic - called in interaction
