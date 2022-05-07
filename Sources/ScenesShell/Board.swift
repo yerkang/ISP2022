@@ -23,6 +23,9 @@ class Board: RenderableEntity {
         board.rect.topLeft = point
     } // initial point of rect
 
+
+
+
     func extend(height: Int) {
         board.rect.size.height -= height } // func called in interaction to increase board height
 
@@ -47,6 +50,7 @@ class Board: RenderableEntity {
 
         }
 
+
         if board.rect.size.width  < (widthOf[x+1]/2) + widthBetween[x]  {
     
 
@@ -64,6 +68,71 @@ class Board: RenderableEntity {
             board.rect.size.width = 10
             board.rect.size.height = -10
 
+    func fall() {
+        let x =  board.rect.size.height
+        board.rect.size.height = board.rect.size.width
+        board.rect.size.width = x*(-1) }
+
+
+    func calculate(canvas: Canvas, widthBetween: [Int], widthOf: [Int], n: Int) { // only called after f is held down
+
+
+        let adds = [width/15, width/13, width/12, width/10, width/11, width/5, width/9, width/15, width/17] // distance between        
+
+        canvasSize = canvas.canvasSize!
+        let width = canvasSize.width
+        
+
+    }
+
+    func calculate(widthBetween: [Int], widthOf: [Int], n: Int) { // only called after f is held down
+
+        let adds = [130, 170, 120, 140, 110, 90, 150, 160, 175, 80]     
+
+
+
+        
+
+        if board.rect.size.width > (widthOf[n]/2) + widthBetween[n] + widthOf[n+1] { // n is index
+            board.rect.size.width = 0
+        }
+
+        if board.rect.size.width < (widthOf[n]/2) + widthBetween[n] {
+
+            board.rect.size.width = 0
+
+           board.rect.size.width = 0
+
+            // dude never makes it - falls off
+        }
+        
+        let startRange = (widthOf[n]/2) + widthBetween[n]
+        let endRange = (widthOf[n]/2) + widthBetween[n] + widthOf[n+1]
+
+        if endRange >= startRange {
+        let numberRange = startRange...endRange
+        }
+        
+        if numberRange.contains(board.rect.size.width) {
+            board.rect.size.width += 40
+        }
+        
+     
+        
+        
+        if board.rect.size.width > startRange && board.rect.size.width < endRange {
+           board.rect.size.width += 40
+
+            // dude walks over
+        }
+
+    }        
+        
+            
+        
+
+
+
             x += 1
             // dude walks over
         }
@@ -73,4 +142,14 @@ class Board: RenderableEntity {
     }
     
 
+
 } // board falling graphic - called in interaction
+
+
+
+
+
+
+
+}
+

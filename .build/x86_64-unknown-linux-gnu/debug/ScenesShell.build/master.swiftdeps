@@ -1,0 +1,14 @@
+version: "Swift version 5.6.1 (swift-5.6.1-RELEASE)"
+options: "b6dbc9f1f2090993cd3343fc6201ce6bfe2420969121a28b6bc94b04496468f1"
+build_start_time: [1651845401, 979918956]
+build_end_time: [1651845402, 299594879]
+inputs:
+  "/home/shivanshi-das/Experiences/ISP2022/Sources/ScenesShell/Background.swift": [1651760174, 360078811]
+  "/home/shivanshi-das/Experiences/ISP2022/Sources/ScenesShell/BackgroundLayer.swift": [1650895851, 474450588]
+  "/home/shivanshi-das/Experiences/ISP2022/Sources/ScenesShell/Board.swift": !private [1651845303, 845822811]
+  "/home/shivanshi-das/Experiences/ISP2022/Sources/ScenesShell/ForegroundLayer.swift": [1650895851, 482450485]
+  "/home/shivanshi-das/Experiences/ISP2022/Sources/ScenesShell/InteractionLayer.swift": !private [1651845132, 984906673]
+  "/home/shivanshi-das/Experiences/ISP2022/Sources/ScenesShell/MainScene.swift": [1650895851, 490449905]
+  "/home/shivanshi-das/Experiences/ISP2022/Sources/ScenesShell/ShellDirector.swift": [1650895851, 502449512]
+  "/home/shivanshi-das/Experiences/ISP2022/Sources/ScenesShell/Tower.swift": [1650982511, 268813610]
+  "/home/shivanshi-das/Experiences/ISP2022/Sources/ScenesShell/main.swift": [1650895851, 502449512]
