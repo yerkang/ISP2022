@@ -27,20 +27,24 @@ class InteractionLayer : Layer, KeyDownHandler {
       }
       
       func onKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
-         
+          let wides = [50, 90, 170, 290, 50, 170, 140, 240, 170, 250, 50, 170] // tower width increment
+          let inBetween = [130, 170, 120, 140, 110, 90, 150, 160, 175, 80]     
+
+
           if key  == "x" {
               board.extend(height: 50)
               }
 
           if key == "f" {
-              board.fall()}
+              board.fall()
+              board.calculate(widthBetween:inBetween, widthOf: wides, n: 0)}
           
       }
 
     override func preSetup(canvasSize: Size, canvas: Canvas) {
         dispatcher.registerKeyDownHandler(handler: self)
-        board.move(to: Point(x:10, y:((canvasSize.height/6)*5 - 300 - 10))) // building height is 300, grass is 5/6 of canvas height
-        
+        board.move(to: Point(x: 80 + (50/2) - 5, y:((canvasSize.height/6)*5 - 300 - 10))) // building height is 300, grass is 5/6 of canvas height
+        // x value = 80 (initial x location) + (50 (initial building width) / 2)
     }
 
     override func postTeardown() {

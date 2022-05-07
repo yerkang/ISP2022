@@ -31,5 +31,27 @@ class Board: RenderableEntity {
         board.rect.size.height = board.rect.size.width
         board.rect.size.width = x*(-1) }
     
+    func calculate(widthBetween: [Int], widthOf: [Int], n: Int) { // only called after f is held down
+        if board.rect.size.width > (widthOf[n]/2) + widthBetween[n+1] + widthOf[n+2] { // n is index
+            board.rect.size.width = 0
+        }
+
+        if board.rect.size.width < (widthOf[n]/2) + widthBetween[n] {
+            board.rect.size.width = 0
+            // dude never makes it - falls off
+        }
+
+        let startRange = (widthOf[n]/2) + widthBetween[n]
+        let endRange = (widthOf[n]/2) + widthBetween[n] + widthOf[n+1]
+          
+
+        if board.rect.size.width > startRange && board.rect.size.width < endRange  {
+            board.rect.size.width += 40
+            // dude walks over
+        }
+
+    }
+    
+    
 
 } // board falling graphic - called in interaction
