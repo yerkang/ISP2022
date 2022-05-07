@@ -35,11 +35,19 @@ class Background : RenderableEntity, MouseMoveHandler {
         }
     }
 
+
+
+
+
     func renderTower (canvas:Canvas, rect: Rect, towerCt: Int, color: Color, adds: [Int], widthAds: [Int]){
         var tower = rect
         var ind = 0
         var winds = Rect(topLeft:Point(x:rect.topLeft.x+10, y:rect.topLeft.y+10), size:Size(width: 30, height: 10))
+
+
+
       
+
         for _ in 0 ..< towerCt {
             let add = adds[ind]
             let widthAd = widthAds[ind]
@@ -52,10 +60,18 @@ class Background : RenderableEntity, MouseMoveHandler {
             winds.topLeft.x += space
             
 
+
         }
+
+
         
     }
 
+
+
+
+    }
+    
     func renderCloud (canvas:Canvas, x: Int, y:Int) {
         let  lump1 = Ellipse(center:Point(x:x, y:y), radiusX:50, radiusY:50, fillMode: .fill)
         let lump2 = Ellipse(center:Point(x:x+50, y:(y)+25), radiusX:50, radiusY:50, fillMode: .fill)
@@ -84,10 +100,23 @@ class Background : RenderableEntity, MouseMoveHandler {
           let skyRect = Rectangle(rect:sky, fillMode:.fill)
           let skyClr = FillStyle(color:Color(red:128, green:170, blue:255))
 
+
+          let groundRect = Rect(topLeft:Point(x:0, y:0 + (5*(canvasSize.height/6))), size:Size(width: width, height: canvasSize.height/3))
+
           let groundRect = Rect(topLeft:Point(x:0, y:0 + (5*(canvasSize.height/6))), size:Size(width: width, height: canvasSize.height/6))
+
           let ground = Rectangle(rect: groundRect, fillMode: .fill)
           let groundClr = FillStyle(color:Color(red:119, green:179, blue:0))
           canvas.render(skyClr, skyRect, groundClr, ground)
+
+
+          let wides = [50, 90, 170, 290, 50, 170, 140, 240, 170, 250, 50, 170] // tower width increment
+          let inBetween = [130, 170, 120, 140, 110, 90, 150, 160, 175, 80]     
+          let towerNo = width/(width/7)
+
+          let towerStr = StrokeStyle(color:Color(.black)); let towerW = LineWidth(width:1);  canvas.render(towerStr, towerW)
+          let towerRect = Rect(topLeft:Point(x:80, y: 5*(canvasSize.height/6)-300), size: Size(width: 150, height:300))
+          renderTower(canvas:canvas, rect: towerRect, towerCt: towerNo, color: Color(.gray), adds: inBetween, widthAds: wides) // distance between
 
           let wides = [-50, 35, 10, -5, 10, 20, -10, 30, -10, 15, 20, -15] // tower width increment
           let twrWidth = [width/15, width/13, width/12, width/10, width/11, width/5, width/9, width/15, width/17]
@@ -98,14 +127,22 @@ class Background : RenderableEntity, MouseMoveHandler {
           let towerRect = Rect(topLeft:Point(x:80, y: 5*(canvasSize.height/6)-300), size: Size(width: 150, height:300))
           renderTower(canvas:canvas, rect: towerRect, towerCt: towerNo, color: Color(.gray), adds:twrWidth, widthAds: wides) // distance between 
 
+
           renderCloud(canvas:canvas, x:cloudM, y:canvasSize.height/4)
           if cloudM > width+100 {
               cloudM = 0
           }
+
+          cloudM += 10
+
+      }
+      
+
           cloudM += 10          
 
       }
     
+
       func onMouseMove(globalLocation: Point, movement: Point){
       }
       override func teardown() {
