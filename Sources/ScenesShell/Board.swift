@@ -35,10 +35,6 @@ class Board: RenderableEntity {
 
         let adds = [130, 170, 120, 140, 110, 90, 150, 160, 175, 80]     
 
-
-
-        
-
         if board.rect.size.width > (widthOf[n]/2) + widthBetween[n] + widthOf[n+1] { // n is index
             board.rect.size.width = 0
         }
@@ -50,8 +46,6 @@ class Board: RenderableEntity {
         
         let startRange = (widthOf[n]/2) + widthBetween[n]
         let endRange = (widthOf[n]/2) + widthBetween[n] + widthOf[n+1]
-        
-     
         
         
         if board.rect.size.width > startRange && board.rect.size.width < endRange {
