@@ -30,8 +30,12 @@ class InteractionLayer : Layer, KeyDownHandler {
          
           if key  == "x" {
               board.extend(height: 50)
-              
-        }}
+              }
+
+          if key == "f" {
+              board.fall()}
+          
+      }
 
     override func preSetup(canvasSize: Size, canvas: Canvas) {
         dispatcher.registerKeyDownHandler(handler: self)

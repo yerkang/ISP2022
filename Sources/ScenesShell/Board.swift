@@ -21,12 +21,15 @@ class Board: RenderableEntity {
 
     func move(to point:Point) {
         board.rect.topLeft = point
-    }
+    } // initial point of rect
 
     func extend(height: Int) {
-        board.rect.size.height -= height }
+        board.rect.size.height -= height } // func called in interaction to increase board height
 
-
+    func fall() {
+        let x =  board.rect.size.height
+        board.rect.size.height = board.rect.size.width
+        board.rect.size.width = x*(-1) }
     
 
-}
+} // board falling graphic - called in interaction
