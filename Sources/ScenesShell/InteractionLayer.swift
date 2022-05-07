@@ -27,7 +27,7 @@ class InteractionLayer : Layer, KeyDownHandler {
       }
       
       func onKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
-          let wides = [50, 90, 170, 290, 50, 170, 140, 240, 170, 250, 50, 170] // tower width increment
+          let wides = [80, 50, 90, 170, 290, 50, 170, 140, 240, 170, 250, 50, 170] // tower width increment
           let inBetween = [130, 170, 120, 140, 110, 90, 150, 160, 175, 80]     
 
 
