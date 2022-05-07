@@ -109,8 +109,7 @@ class Background : RenderableEntity, MouseMoveHandler {
 
           cloudM += 10
 
-      }
-
+      }    
       func onMouseMove(globalLocation: Point, movement: Point){
       }
       override func teardown() {
