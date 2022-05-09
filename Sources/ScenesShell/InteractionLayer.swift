@@ -31,7 +31,7 @@ class InteractionLayer : Layer, KeyDownHandler {
           let inBetween = [130, 170, 120, 140, 110, 90, 80] //area in between the buiildings
 
           if key  == "x" { //when key 'x' is pressed 
-              board.extend(height: 50) // board extends up
+              board.extend(height: 10) // board extends up
               }
 
           if key == "f" {
