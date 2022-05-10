@@ -16,10 +16,10 @@ class Lose: RenderableEntity {
 
     func renderLife (canvas:Canvas, lifeCt:Int) { //renders number of lives left
         let text = Text(location:Point(x:15, y:40), text:"Number of Lives: \(lifeCt)")
-        text.font = "30pt Arial"
+        text.font = "30pt Courier New"
 
         let instr1 = Text(location:Point(x:15, y: 80), text:"press [X] to extend bridge; press [F] to drop bridge")
-        instr1.font = "20pt Arial"
+        instr1.font = "20pt Courier New"
         canvas.render(FillStyle(color:Color(.black)))
         canvas.render(text, instr1)
     }
@@ -47,18 +47,19 @@ class Lose: RenderableEntity {
 
         if lifeCt == 0 {
             renderRectangle(canvas:canvas, rect:blackOut, color: Color(.black)) //makes the entire screen black
-            let dead = Text(location:Point(x:canvasSize.width/3, y:canvasSize.height/2), text:"YOU DIED!!! :(") //text that showes when you die
-            let dead2 = Text(location:Point(x:canvasSize.width/3, y:3*(canvasSize.height/4)), text:"Refresh the Page to RESTART")
-            dead.font = "30pt Arial"
+            let dead = Text(location:Point(x:canvasSize.width/3, y:canvasSize.height/2), text:"YOU DIED!!! ･ﾟ･(｡>ω<｡)･ﾟ･") //text that showes when you die
+            let dead2 = Text(location:Point(x:canvasSize.width/3, y:3*(canvasSize.height/5)), text:"Refresh the Page to RESTART")
+            dead.font = "30pt Courier New"
             canvas.render(FillStyle(color:Color(.white)))
             canvas.render(dead, dead2)
         }
 
-        if winCt == 5 {
-            renderRectangle(canvas:canvas, rect: blackOut, color: Color(.gold))
-
-            let win = Text(location:Point(x:canvasSize.width/3, y:canvasSize.height/2), text:"YOU WIN!! CONGRATS!!!")
-            win.font = "30pt Arial"
+        if winCt == 6 {
+            renderRectangle(canvas:canvas, rect: blackOut, color: Color(.lightpink))
+            let win = Text(location:Point(x:canvasSize.width/3, y:canvasSize.height/2), text:"YOU WIN!! CONGRATS!!! °˖✧◝(⁰▿⁰)◜✧˖°")
+            win.font = "30pt Georgia"            
+            let win2 = Text(location:Point(x:canvasSize.width/3, y:3*(canvasSize.height/5)), text:"Lives left: \(lifeCt)")            
+            win2.font = "30pt Georgia" 
             canvas.render(FillStyle(color:Color(.black)), win)
         }
 

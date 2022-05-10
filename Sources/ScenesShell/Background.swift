@@ -61,7 +61,7 @@ class Background : RenderableEntity, MouseMoveHandler {
     var cloud : Image
     
     init() {
-        guard let cloudURL = URL(string:"https://www.pngkey.com/png/full/1-15550_clouds-pixel-clouds-transparent.png")
+        guard let cloudURL = URL(string:"https://www.pikpng.com/pngl/b/472-4723400_clouds-transparent-pixel-art-clouds-clipart.png")
         else {
             fatalError("Failed to create URL for cloud")
         }
@@ -97,8 +97,8 @@ class Background : RenderableEntity, MouseMoveHandler {
           let towerNo = 7
 
           if cloud.isReady {
-              let sourceRect = Rect(topLeft:Point(x:00, y:00), size:Size(width:500, height:500))
-              let destinationRect = Rect(topLeft:Point(x:cloudM, y:100), size:Size(width:300, height:300))
+              let sourceRect = Rect(topLeft:Point(x:00, y:00), size:Size(width:1400, height:800))
+              let destinationRect = Rect(topLeft:Point(x:cloudM, y:100), size:Size(width:400, height:250))
               cloud.renderMode = .sourceAndDestination(sourceRect:sourceRect, destinationRect:destinationRect)
               canvas.render(cloud)              
           }          
