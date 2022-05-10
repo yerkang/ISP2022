@@ -6,11 +6,8 @@ import Foundation
      This class is responsible for rendering the background.
    */
 
-
-
-
-
 class Background : RenderableEntity, MouseMoveHandler {
+
     func renderRectangle(canvas: Canvas, rect: Rect, color:Color){
         let rectangle = Rectangle(rect: rect, fillMode: .fillAndStroke)
         let fillRect = FillStyle(color:color)

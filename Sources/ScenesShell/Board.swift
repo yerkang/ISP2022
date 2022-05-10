@@ -32,7 +32,6 @@ class Board: RenderableEntity {
         let strokeStyle = StrokeStyle(color:Color(.black))
         let fillStyle = FillStyle(color:Color(.white))
         let lineWidth = LineWidth(width:1)
-        let liveCt = 3
 
         canvas.render(strokeStyle, fillStyle, lineWidth, board)
         if  minion.isReady {
@@ -43,23 +42,21 @@ class Board: RenderableEntity {
             }
         }
     
-    func move(to point:Point) {
+    func move(to point:Point) { //board moves to point
         board.rect.topLeft = point
     } // initial point of rect
 
-    func extend(height: Int) {
+    func extend(height: Int) { //board becomes longer
         board.rect.size.height -= height } // func called in interaction to increase board height
 
-    func fall() {
+    func fall() { //board falls (switch the height and width)
         let x =  board.rect.size.height
         board.rect.size.height = board.rect.size.width
         board.rect.size.width = x*(-1) }
 
-  //  func gameOver() {
-  //  }
-   
-    func calculate(widthBetween: [Int], widthOf: [Int]) -> Bool { // only called after f is held down
-        var ind = 0
+    var ind = 0
+    
+    func calculate(widthBetween: [Int], widthOf: [Int]) -> Bool { // only called after f is held down        
         
            let endRange = (widthOf[ind]/2) + widthBetween[ind] + widthOf[ind+1]
            let startRange = (widthOf[ind]/2) + widthBetween[ind]
@@ -78,7 +75,7 @@ class Board: RenderableEntity {
                tf = false
            }
 
-           if board.rect.size.width < endRange && board.rect.size.width > startRange  {
+           if board.rect.size.width <= endRange && board.rect.size.width >= startRange  {
                board.rect.topLeft.x += newPosition
                board.rect.size.width = 10
                board.rect.size.height = -10
@@ -89,4 +86,4 @@ class Board: RenderableEntity {
            return tf
        }
 }
- //board falling graphic - called in interaction 
+//checks if board is long enough to walk on. 
