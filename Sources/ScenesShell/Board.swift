@@ -16,15 +16,11 @@ class Board: RenderableEntity {
         else {
             fatalError("Failed to create URL for minion")
         }
-        guard let loseURL = URL(string:"http://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/998c2fe51b48b9e.png")
-        else {
-            fatalError("Failed to create URL for lose")
-        }
-        
         minion = Image(sourceURL: minionURL)
 
         board = Rectangle(rect:rect, fillMode:.fillAndStroke)
         super.init(name: "Board")
+
     }
 
     override func setup(canvasSize:Size, canvas:Canvas) {
@@ -32,14 +28,16 @@ class Board: RenderableEntity {
     }
 
     override func render(canvas:Canvas) {
+        let canvasSize = canvas.canvasSize!
         let strokeStyle = StrokeStyle(color:Color(.black))
         let fillStyle = FillStyle(color:Color(.white))
         let lineWidth = LineWidth(width:1)
+        let liveCt = 3
 
         canvas.render(strokeStyle, fillStyle, lineWidth, board)
         if  minion.isReady {
             let sourceRect = Rect(topLeft: Point(x: 00, y: 00), size: Size(width: 500, height: 500))
-            let destinationRect = Rect(topLeft: Point(x:board.rect.topLeft.x + board.rect.size.width, y:265), size: Size(width:100, height:100))
+            let destinationRect = Rect(topLeft: Point(x:board.rect.topLeft.x + board.rect.size.width, y: (6*(canvasSize.height/7))-393), size: Size(width:100, height:100))
             minion.renderMode = .sourceAndDestination(sourceRect: sourceRect, destinationRect: destinationRect)
             canvas.render(minion)
             }
@@ -59,27 +57,36 @@ class Board: RenderableEntity {
 
   //  func gameOver() {
   //  }
-
    
-       func calculate(widthBetween: [Int], widthOf: [Int], n: Int) { // only called after f is held down
-   
-           let endRange = (widthOf[n]/2) + widthBetween[n] + widthOf[n+1]
-           let startRange = (widthOf[n]/2) + widthBetween[n]
-           let newPosition = (widthOf[n]/2) + widthBetween[n] + (widthOf[n+1]/2)
+    func calculate(widthBetween: [Int], widthOf: [Int]) -> Bool { // only called after f is held down
+        var ind = 0
+        
+           let endRange = (widthOf[ind]/2) + widthBetween[ind] + widthOf[ind+1]
+           let startRange = (widthOf[ind]/2) + widthBetween[ind]
+           let newPosition = (widthOf[ind]/2) + widthBetween[ind] + (widthOf[ind+1]/2)
+           var tf = true
            
-           if board.rect.size.width  > endRange { // n is inden
+           if board.rect.size.width  > endRange { // ind is inden
                board.rect.size.height = 10
+               board.rect.size.width = 10
+               tf = false
+               
            }
            if board.rect.size.width <  startRange  {
                board.rect.size.height = 10
+               board.rect.size.width = 10
+               tf = false
            }
 
            if board.rect.size.width < endRange && board.rect.size.width > startRange  {
                board.rect.topLeft.x += newPosition
                board.rect.size.width = 10
                board.rect.size.height = -10
+               ind += 1
                // dude walks over
            }
+
+           return tf
        }
 }
  //board falling graphic - called in interaction 

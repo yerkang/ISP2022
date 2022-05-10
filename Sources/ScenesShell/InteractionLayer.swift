@@ -11,7 +11,8 @@ import Foundation
 class InteractionLayer : Layer, KeyDownHandler {
 
     let board = Board(rect: Rect(size:Size(width:10, height:10)))
-    let background = Background()    
+    let background = Background()
+    let lose = Lose()
     var Buildindex = 0
 
 
@@ -19,6 +20,7 @@ class InteractionLayer : Layer, KeyDownHandler {
           // Using a meaningful name can be helpful for debugging
           super.init(name:"Interaction")
           insert(entity: board, at: .front)
+          insert(entity: lose, at: .front)
           insert(entity: background, at: .back)
 
           // We insert our RenderableEntities in the constructor
@@ -36,7 +38,9 @@ class InteractionLayer : Layer, KeyDownHandler {
 
           if key == "f" {
               board.fall() //board width and height switches 'falls'
-              board.calculate(widthBetween:inBetween, widthOf: wides, n: Buildindex) //whether it meets the buildings or not 
+              if board.calculate(widthBetween:inBetween, widthOf: wides) == false { //whether it meets the buildings or not
+                  lose.loseLife()
+              }
               Buildindex += 1 //increase the index so it matches building inbetween & width
           }              
           
