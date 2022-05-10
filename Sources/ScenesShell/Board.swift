@@ -36,7 +36,7 @@ class Board: RenderableEntity {
         canvas.render(strokeStyle, fillStyle, lineWidth, board)
         if  minion.isReady {
             let sourceRect = Rect(topLeft: Point(x: 00, y: 00), size: Size(width: 500, height: 500))
-            let destinationRect = Rect(topLeft: Point(x:board.rect.topLeft.x + board.rect.size.width, y: (6*(canvasSize.height/7))-393), size: Size(width:100, height:100))
+            let destinationRect = Rect(topLeft: Point(x:board.rect.topLeft.x - 50, y: (6*(canvasSize.height/7))-393), size: Size(width:100, height:100))
             minion.renderMode = .sourceAndDestination(sourceRect: sourceRect, destinationRect: destinationRect)
             canvas.render(minion)
             }
